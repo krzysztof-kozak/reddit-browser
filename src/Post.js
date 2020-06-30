@@ -6,7 +6,9 @@ const Post = ({ title, url, author }) => {
       <a className='link' href={url} target='_blank' rel='noopener noreferrer'>
         {title}
       </a>
-      <p className='author'>{`posted by ${author}`}</p>
+      <p className='author'>
+        posted by <strong>{author}</strong>
+      </p>
     </li>
   );
 };
