@@ -8,6 +8,13 @@ const Search = () => {
   const [pages, setPages] = useState({});
   const [error, setError] = useState(null);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery) {
+      fetchPosts();
+    }
+  };
+
   const fetchPosts = async (prevPage = null, nextPage = null, count = 0) => {
     const response = await fetch(
       `https://www.reddit.com/r/${searchQuery}/new.json?limit=${postLimit}&count=${count}${nextPage ? `&after=${nextPage}` : ''}${prevPage ? `&before=${prevPage}` : ''}`
@@ -39,20 +46,21 @@ const Search = () => {
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1>Reddit App</h1>
         <div>
           <p>
             <label>reddit/r</label>
-            <input></input>
+            <input id='search' onChange={(e) => setSearchQuery(e.target.value.replace(/\s+/g, ''))}></input>
           </p>
 
           <p>
             <button type='submit'>search</button>
           </p>
+          {error ? <p>{error}</p> : null}
         </div>
       </form>
-      <PostList />
+      <PostList posts={posts} pages={pages} fetchPosts={fetchPosts} />
     </>
   );
 };
