@@ -2,10 +2,11 @@ import React from 'react';
 
 const Post = ({ title, url, author }) => {
   return (
-    <li>
-      <a href={url} target='_blank' rel='noopener noreferrer'>
+    <li className='list__item'>
+      <a className='link' href={url} target='_blank' rel='noopener noreferrer'>
         {title}
       </a>
+      <p className='author'>{`posted by ${author}`}</p>
     </li>
   );
 };
