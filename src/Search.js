@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PostList from './PostList';
 
 const Search = () => {
@@ -16,15 +16,18 @@ const Search = () => {
     }
   };
 
+  useEffect(() => {
+    if (posts) {
+      fetchPosts();
+    }
+  }, [postLimit, sortBy]);
+
   const handlePostLimiChange = (e) => {
     setPostLimit(e.target.value);
   };
 
   const handleSortByChange = (e) => {
     setSortBy(e.target.value);
-    if (posts) {
-      fetchPosts();
-    }
   };
 
   const fetchPosts = async (prevPage = null, nextPage = null, count = 0) => {
