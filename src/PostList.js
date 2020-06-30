@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Post from './Post';
 
-const PostList = ({ posts, pages, fetchPosts, sortBy }) => {
-  const handleClick = (e) => {
-    if (typeof fetchPosts === 'function') {
-      switch (e.target.value) {
-        case 'prev':
-          fetchPosts(pages.before, null, 0);
-          break;
-        case 'next':
-          fetchPosts(null, pages.after, posts.length);
-          break;
+const PostList = ({ posts, fetchPosts, pages, sortBy }) => {
+  const [numberOfPostsFetched, setNumberOfPostsFetched] = useState(0);
 
-        default:
-          return;
+  const handleNextPage = () => {
+    setNumberOfPostsFetched((prev) => prev + posts.length);
+    fetchPosts(null, pages.after, numberOfPostsFetched);
+  };
+
+  const handlePrevPage = () => {
+    setNumberOfPostsFetched((prev) => {
+      if (prev - posts.length >= 0) {
+        setNumberOfPostsFetched((prev) => prev - posts.length);
+      } else {
+        setNumberOfPostsFetched(0);
       }
-    }
+    });
+    fetchPosts(pages.before, null, numberOfPostsFetched);
   };
 
   if (posts) {
@@ -35,10 +37,10 @@ const PostList = ({ posts, pages, fetchPosts, sortBy }) => {
           ))}
         </ul>
         <div className='button-wrapper'>
-          <button className='list__button' value='prev' onClick={handleClick}>
+          <button className='list__button' onClick={handlePrevPage}>
             Prev Page
           </button>
-          <button className='list__button' value='next' onClick={handleClick}>
+          <button className='list__button' onClick={handleNextPage}>
             Next Page
           </button>
         </div>

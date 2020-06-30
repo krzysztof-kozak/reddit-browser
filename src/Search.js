@@ -16,12 +16,6 @@ const Search = () => {
     }
   };
 
-  useEffect(() => {
-    if (posts) {
-      fetchPosts();
-    }
-  }, [postLimit, sortBy]);
-
   const handlePostLimiChange = (e) => {
     setPostLimit(e.target.value);
   };
@@ -49,9 +43,13 @@ const Search = () => {
   };
 
   const parseResponses = (responseJson) => {
-    const posts = responseJson.data.children.map((child) => {
-      return { title: child.data.title, url: child.data.permalink, subredditName: child.data.subreddit_name_prefixed, author: child.data.author, key: child.data.id };
-    });
+    const posts = responseJson.data.children
+
+      //Sticked posts do not adhere to the post per page limit. Filtering them out is not ideal, but I couldn't find a better solution.
+      .filter((post) => post.data.stickied === false)
+      .map((child) => {
+        return { title: child.data.title, url: child.data.permalink, subredditName: child.data.subreddit_name_prefixed, author: child.data.author, key: child.data.id };
+      });
     setPosts(posts);
   };
 
@@ -99,7 +97,7 @@ const Search = () => {
         {error ? <p className='error'>{error}</p> : null}
       </form>
 
-      <PostList posts={posts} pages={pages} fetchPosts={fetchPosts} sortBy={sortBy} />
+      <PostList posts={posts} pages={pages} fetchPosts={fetchPosts} sortBy={sortBy} postLimit={postLimit} />
     </>
   );
 };
