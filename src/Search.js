@@ -63,7 +63,7 @@ const Search = () => {
           </p>
 
           <p>
-            <label for='postLimit'>Posts per page</label>
+            <label htmlFor='postLimit'>Posts per page</label>
             <select id='postLimit' value={postLimit} onChange={handlePostLimiChange}>
               <option value={10}>10</option>
               <option value={20}>20</option>
