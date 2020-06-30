@@ -50,28 +50,30 @@ const Search = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <h1>Reddit App</h1>
-        <div>
-          <p>
-            <label>reddit/r</label>
-            <input id='search' onChange={(e) => setSearchQuery(e.target.value.replace(/\s+/g, ''))}></input>
-          </p>
+      <form className='form' onSubmit={handleSubmit}>
+        <h1 className='form__title'>Reddit App</h1>
 
-          <p>
-            <button type='submit'>search</button>
-          </p>
+        <p className='search-wrapper'>
+          <label className='form__label form__label--main'>reddit/r</label>
+          <input className='form__input' id='search' placeholder='e.g reactjs' onChange={(e) => setSearchQuery(e.target.value.replace(/\s+/g, ''))}></input>
+        </p>
 
-          <p>
-            <label htmlFor='postLimit'>Posts per page</label>
-            <select id='postLimit' value={postLimit} onChange={handlePostLimiChange}>
-              <option value={10}>10</option>
-              <option value={20}>20</option>
-              <option value={30}>30</option>
-            </select>
-          </p>
-          {error ? <p>{error}</p> : null}
-        </div>
+        <p className='search-wrapper'>
+          <label className='form__label' htmlFor='postLimit'>
+            posts per page
+          </label>
+          <select className='form__select' id='postLimit' value={postLimit} onChange={handlePostLimiChange}>
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            <option value={30}>30</option>
+          </select>
+        </p>
+
+        <button className='form__button' type='submit'>
+          search
+        </button>
+
+        {error ? <p className='error'>{error}</p> : null}
       </form>
       <PostList posts={posts} pages={pages} fetchPosts={fetchPosts} />
     </>
