@@ -7,7 +7,6 @@ const PostList = ({ posts, pages, fetchPosts }) => {
       switch (e.target.value) {
         case 'prev':
           fetchPosts(pages.before, null, 0);
-          console.log(pages.before);
           break;
         case 'next':
           fetchPosts(null, pages.after, posts.length);
