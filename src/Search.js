@@ -4,6 +4,7 @@ import PostList from './PostList';
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [postLimit, setPostLimit] = useState(10);
+  const [sortBy, setSortBy] = useState('new');
   const [posts, setPosts] = useState(false);
   const [pages, setPages] = useState({});
   const [error, setError] = useState(null);
@@ -19,9 +20,13 @@ const Search = () => {
     setPostLimit(e.target.value);
   };
 
+  const handleSortByChange = (e) => {
+    setSortBy(e.target.value);
+  };
+
   const fetchPosts = async (prevPage = null, nextPage = null, count = 0) => {
     const response = await fetch(
-      `https://www.reddit.com/r/${searchQuery}/new.json?limit=${postLimit}&count=${count}${nextPage ? `&after=${nextPage}` : ''}${prevPage ? `&before=${prevPage}` : ''}`
+      `https://www.reddit.com/r/${searchQuery}/${sortBy}.json?limit=${postLimit}&count=${count}${nextPage ? `&after=${nextPage}` : ''}${prevPage ? `&before=${prevPage}` : ''}`
     );
 
     if (response.status === 404) {
@@ -66,6 +71,18 @@ const Search = () => {
             <option value={10}>10</option>
             <option value={20}>20</option>
             <option value={30}>30</option>
+          </select>
+        </p>
+
+        <p className='search-wrapper'>
+          <label className='form__label' htmlFor='sortBy'>
+            sort posts by
+          </label>
+          <select className='form__select' id='sortBy' value={sortBy} onChange={handleSortByChange}>
+            <option value='hot'>hot</option>
+            <option value='new'>new</option>
+            <option value='top'>top</option>
+            <option value='rising'>rising</option>
           </select>
         </p>
 
