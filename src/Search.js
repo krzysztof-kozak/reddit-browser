@@ -39,7 +39,7 @@ const Search = () => {
 
   const parseResponses = (responseJson) => {
     const posts = responseJson.data.children.map((child) => {
-      return { title: child.data.title, url: child.data.url, key: child.data.id };
+      return { title: child.data.title, url: child.data.url, subredditName: child.data.subreddit_name_prefixed, author: child.data.author, key: child.data.id };
     });
     setPosts(posts);
   };
@@ -75,6 +75,7 @@ const Search = () => {
 
         {error ? <p className='error'>{error}</p> : null}
       </form>
+
       <PostList posts={posts} pages={pages} fetchPosts={fetchPosts} />
     </>
   );

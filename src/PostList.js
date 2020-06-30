@@ -23,7 +23,7 @@ const PostList = ({ posts, pages, fetchPosts }) => {
       <>
         <ul className='list'>
           {posts.map((post) => (
-            <Post title={post.title} url={post.url} key={post.key} />
+            <Post title={post.title} url={post.url} subredditName={post.subredditName} author={post.author} key={post.key} />
           ))}
         </ul>
         <div class='button-wrapper'>

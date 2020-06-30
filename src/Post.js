@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Post = ({ title, url }) => {
+const Post = ({ title, url, author }) => {
   return (
     <li>
-      {title} <a href={url}>link</a>
+      <a href={url} target='_blank' rel='noopener noreferrer'>
+        {title}
+      </a>
     </li>
   );
 };
