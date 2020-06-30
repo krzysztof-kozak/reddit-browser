@@ -1,13 +1,22 @@
 .list {
   list-style: none;
   padding: 0;
-  margin: 2em 1em;
+  margin: 2em auto;
+  max-width: 768px;
+  @media (max-width: 768px) {
+    margin: 2em 16px;
+  }
 }
 
 .button-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 768px;
+  @media (max-width: 768px) {
+    margin: 0 16px;
+  }
 }
 
 .list__button {
@@ -17,5 +26,4 @@
   border: 3px outset #357c1fa1;
   box-shadow: 0 0 2px 1px #000;
   color: #070628;
-  margin-top: 1.3em;
 }

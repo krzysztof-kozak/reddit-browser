@@ -1,9 +1,20 @@
 .list__item {
-  padding: 2em 0.5em;
-  border: 1px solid black;
-  margin-bottom: 2em;
+  padding: 0.5em 0.25em;
+  border-radius: 5px;
+  margin: 0.5em 0;
+  background-color: #23b65e99;
+  &:nth-child(odd) {
+    background-color: #ffeb3ba1;
+  }
+  &:hover {
+    border: 1px solid #000;
+  }
 }
 
 .link {
   text-decoration: none;
+}
+
+.author {
+  font-size: 0.7em;
 }
