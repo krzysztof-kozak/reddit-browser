@@ -22,6 +22,9 @@ const Search = () => {
 
   const handleSortByChange = (e) => {
     setSortBy(e.target.value);
+    if (posts) {
+      fetchPosts();
+    }
   };
 
   const fetchPosts = async (prevPage = null, nextPage = null, count = 0) => {
@@ -79,9 +82,9 @@ const Search = () => {
             sort posts by
           </label>
           <select className='form__select' id='sortBy' value={sortBy} onChange={handleSortByChange}>
-            <option value='hot'>hot</option>
             <option value='new'>new</option>
             <option value='top'>top</option>
+            <option value='hot'>hot</option>
             <option value='rising'>rising</option>
           </select>
         </p>
@@ -93,7 +96,7 @@ const Search = () => {
         {error ? <p className='error'>{error}</p> : null}
       </form>
 
-      <PostList posts={posts} pages={pages} fetchPosts={fetchPosts} />
+      <PostList posts={posts} pages={pages} fetchPosts={fetchPosts} sortBy={sortBy} />
     </>
   );
 };

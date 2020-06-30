@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from './Post';
 
-const PostList = ({ posts, pages, fetchPosts }) => {
+const PostList = ({ posts, pages, fetchPosts, sortBy }) => {
   const handleClick = (e) => {
     if (typeof fetchPosts === 'function') {
       switch (e.target.value) {
@@ -21,12 +21,20 @@ const PostList = ({ posts, pages, fetchPosts }) => {
   if (posts) {
     return (
       <>
+        <h2 className='subreddit-title'>
+          Posts from <b>{posts[0].subredditName}</b>
+        </h2>
+
+        <p className='list-info'>
+          Sorted by: <b>{sortBy}</b>{' '}
+        </p>
+
         <ul className='list'>
           {posts.map((post) => (
-            <Post title={post.title} url={post.url} subredditName={post.subredditName} author={post.author} key={post.key} />
+            <Post title={post.title} url={post.url} author={post.author} key={post.key} />
           ))}
         </ul>
-        <div class='button-wrapper'>
+        <div className='button-wrapper'>
           <button className='list__button' value='prev' onClick={handleClick}>
             Prev Page
           </button>
