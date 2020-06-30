@@ -50,7 +50,7 @@ const Search = () => {
 
   const parseResponses = (responseJson) => {
     const posts = responseJson.data.children.map((child) => {
-      return { title: child.data.title, url: child.data.url, subredditName: child.data.subreddit_name_prefixed, author: child.data.author, key: child.data.id };
+      return { title: child.data.title, url: child.data.permalink, subredditName: child.data.subreddit_name_prefixed, author: child.data.author, key: child.data.id };
     });
     setPosts(posts);
   };
