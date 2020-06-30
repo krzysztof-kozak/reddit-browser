@@ -1,7 +1,8 @@
 import React from 'react';
+import Search from './Search';
 
 function App() {
-  return <h1>App</h1>;
+  return <Search />;
 }
 
 export default App;
