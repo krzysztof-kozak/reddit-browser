@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import PostList from './PostList';
 
 const Search = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [postLimit, setPostLimit] = useState(10);
+  const [posts, setPosts] = useState(false);
+  const [pages, setPages] = useState({});
+  const [error, setError] = useState(null);
+
   return (
     <>
       <form>
