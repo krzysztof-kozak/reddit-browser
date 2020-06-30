@@ -1,0 +1,21 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 2em 1em;
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.list__button {
+  font-size: 1.3em;
+  padding: 4px 8px;
+  background: #58904694;
+  border: 3px outset #357c1fa1;
+  box-shadow: 0 0 2px 1px #000;
+  color: #070628;
+  margin-top: 1.3em;
+}

@@ -21,17 +21,19 @@ const PostList = ({ posts, pages, fetchPosts }) => {
   if (posts) {
     return (
       <>
-        <ul>
+        <ul className='list'>
           {posts.map((post) => (
             <Post title={post.title} url={post.url} key={post.key} />
           ))}
         </ul>
-        <button value='prev' onClick={handleClick}>
-          Prev Page
-        </button>
-        <button value='next' onClick={handleClick}>
-          Next Page
-        </button>
+        <div class='button-wrapper'>
+          <button className='list__button' value='prev' onClick={handleClick}>
+            Prev Page
+          </button>
+          <button className='list__button' value='next' onClick={handleClick}>
+            Next Page
+          </button>
+        </div>
       </>
     );
   } else {
