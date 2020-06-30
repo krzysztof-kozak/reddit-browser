@@ -35,7 +35,7 @@ const Search = () => {
 
   const parseResponses = (responseJson) => {
     const posts = responseJson.data.children.map((child) => {
-      return { title: child.data.title, url: child.data.url };
+      return { title: child.data.title, url: child.data.url, key: child.data.id };
     });
     setPosts(posts);
   };

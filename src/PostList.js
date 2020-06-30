@@ -24,7 +24,7 @@ const PostList = ({ posts, pages, fetchPosts }) => {
       <>
         <ul>
           {posts.map((post) => (
-            <Post title={post.title} url={post.url} />
+            <Post title={post.title} url={post.url} key={post.key} />
           ))}
         </ul>
         <button value='prev' onClick={handleClick}>
