@@ -23,7 +23,7 @@ npm install
 npm run start
 ```
 
-### `Development mode.`
+### Development mode.
 
 `npm run start` runs the app in the development mode.<br />
 
