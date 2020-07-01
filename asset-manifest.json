@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/krzysztof-kozak/reddit-browser/static/css/main.8c34f0de.chunk.css",
-    "main.js": "/krzysztof-kozak/reddit-browser/static/js/main.d29cb8d5.chunk.js",
-    "main.js.map": "/krzysztof-kozak/reddit-browser/static/js/main.d29cb8d5.chunk.js.map",
-    "runtime-main.js": "/krzysztof-kozak/reddit-browser/static/js/runtime-main.c2bb2023.js",
-    "runtime-main.js.map": "/krzysztof-kozak/reddit-browser/static/js/runtime-main.c2bb2023.js.map",
-    "static/js/2.84273b5c.chunk.js": "/krzysztof-kozak/reddit-browser/static/js/2.84273b5c.chunk.js",
-    "static/js/2.84273b5c.chunk.js.map": "/krzysztof-kozak/reddit-browser/static/js/2.84273b5c.chunk.js.map",
-    "index.html": "/krzysztof-kozak/reddit-browser/index.html",
-    "precache-manifest.278a3dbfb9a00c13b59fa0ed0617d4f4.js": "/krzysztof-kozak/reddit-browser/precache-manifest.278a3dbfb9a00c13b59fa0ed0617d4f4.js",
-    "service-worker.js": "/krzysztof-kozak/reddit-browser/service-worker.js",
-    "static/css/main.8c34f0de.chunk.css.map": "/krzysztof-kozak/reddit-browser/static/css/main.8c34f0de.chunk.css.map",
-    "static/js/2.84273b5c.chunk.js.LICENSE.txt": "/krzysztof-kozak/reddit-browser/static/js/2.84273b5c.chunk.js.LICENSE.txt"
+    "main.css": "/reddit-browser/static/css/main.8c34f0de.chunk.css",
+    "main.js": "/reddit-browser/static/js/main.7be5a275.chunk.js",
+    "main.js.map": "/reddit-browser/static/js/main.7be5a275.chunk.js.map",
+    "runtime-main.js": "/reddit-browser/static/js/runtime-main.24718a61.js",
+    "runtime-main.js.map": "/reddit-browser/static/js/runtime-main.24718a61.js.map",
+    "static/js/2.84273b5c.chunk.js": "/reddit-browser/static/js/2.84273b5c.chunk.js",
+    "static/js/2.84273b5c.chunk.js.map": "/reddit-browser/static/js/2.84273b5c.chunk.js.map",
+    "index.html": "/reddit-browser/index.html",
+    "precache-manifest.aa3f996ffda89f3036c63f56adb30b19.js": "/reddit-browser/precache-manifest.aa3f996ffda89f3036c63f56adb30b19.js",
+    "service-worker.js": "/reddit-browser/service-worker.js",
+    "static/css/main.8c34f0de.chunk.css.map": "/reddit-browser/static/css/main.8c34f0de.chunk.css.map",
+    "static/js/2.84273b5c.chunk.js.LICENSE.txt": "/reddit-browser/static/js/2.84273b5c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c2bb2023.js",
+    "static/js/runtime-main.24718a61.js",
     "static/js/2.84273b5c.chunk.js",
     "static/css/main.8c34f0de.chunk.css",
-    "static/js/main.d29cb8d5.chunk.js"
+    "static/js/main.7be5a275.chunk.js"
   ]
 }
