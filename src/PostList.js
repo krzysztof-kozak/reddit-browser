@@ -27,13 +27,9 @@ const PostList = ({ posts, fetchPosts, pages, sortBy }) => {
           Posts from <b>{posts[0].subredditName}</b>
         </h2>
 
-        <p className='list-info'>
-          Sorted by: <b>{sortBy}</b>{' '}
-        </p>
-
         <ul className='list'>
           {posts.map((post) => (
-            <Post title={post.title} url={post.url} author={post.author} key={post.key} />
+            <Post sortBy={sortBy} title={post.title} url={post.url} author={post.author} key={post.key} />
           ))}
         </ul>
         <div className='button-wrapper'>
