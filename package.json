@@ -1,6 +1,6 @@
 {
   "name": "reddit-browser",
-  "homepage": "https://github.com/krzysztof-kozak/reddit-browser",
+  "homepage": "https://krzysztof-kozak.github.io/reddit-browser",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
