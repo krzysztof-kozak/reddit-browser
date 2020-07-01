@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/krzysztof-kozak/reddit-browser/static/css/main.8c34f0de.chunk.css",
+    "main.js": "/krzysztof-kozak/reddit-browser/static/js/main.d29cb8d5.chunk.js",
+    "main.js.map": "/krzysztof-kozak/reddit-browser/static/js/main.d29cb8d5.chunk.js.map",
+    "runtime-main.js": "/krzysztof-kozak/reddit-browser/static/js/runtime-main.c2bb2023.js",
+    "runtime-main.js.map": "/krzysztof-kozak/reddit-browser/static/js/runtime-main.c2bb2023.js.map",
+    "static/js/2.84273b5c.chunk.js": "/krzysztof-kozak/reddit-browser/static/js/2.84273b5c.chunk.js",
+    "static/js/2.84273b5c.chunk.js.map": "/krzysztof-kozak/reddit-browser/static/js/2.84273b5c.chunk.js.map",
+    "index.html": "/krzysztof-kozak/reddit-browser/index.html",
+    "precache-manifest.278a3dbfb9a00c13b59fa0ed0617d4f4.js": "/krzysztof-kozak/reddit-browser/precache-manifest.278a3dbfb9a00c13b59fa0ed0617d4f4.js",
+    "service-worker.js": "/krzysztof-kozak/reddit-browser/service-worker.js",
+    "static/css/main.8c34f0de.chunk.css.map": "/krzysztof-kozak/reddit-browser/static/css/main.8c34f0de.chunk.css.map",
+    "static/js/2.84273b5c.chunk.js.LICENSE.txt": "/krzysztof-kozak/reddit-browser/static/js/2.84273b5c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c2bb2023.js",
+    "static/js/2.84273b5c.chunk.js",
+    "static/css/main.8c34f0de.chunk.css",
+    "static/js/main.d29cb8d5.chunk.js"
+  ]
+}
