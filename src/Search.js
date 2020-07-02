@@ -50,6 +50,9 @@ const Search = () => {
   };
 
   const fetchPosts = async (prevPage = null, nextPage = null, count = 0) => {
+    if (count === 0) {
+      prevPage = null;
+    }
     const response = await fetch(
       `https://www.reddit.com/r/${searchQuery}/${sortBy}.json?limit=${postLimit}&count=${count}${nextPage ? `&after=${nextPage}` : ''}${prevPage ? `&before=${prevPage}` : ''}`
     );
