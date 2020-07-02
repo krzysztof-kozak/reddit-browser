@@ -8,9 +8,14 @@ const Search = () => {
   const [posts, setPosts] = useState(false);
   const [pages, setPages] = useState({});
   const [error, setError] = useState(null);
+  const [numberOfPostsFetched, setNumberOfPostsFetched] = useState(0);
+  const [title, setTitle] = useState(0);
+  const [subtitle, setSubTitle] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setTitle(e.target.search.value.replace(/\s+/g, '').toLowerCase());
+    setSubTitle(e.target.sortBy.value);
     if (searchQuery) {
       fetchPosts();
     }
@@ -22,6 +27,22 @@ const Search = () => {
 
   const handleSortByChange = (e) => {
     setSortBy(e.target.value);
+  };
+
+  const handleNextPage = () => {
+    setNumberOfPostsFetched((prev) => prev + posts.length);
+    fetchPosts(null, pages.after, numberOfPostsFetched);
+  };
+
+  const handlePrevPage = () => {
+    setNumberOfPostsFetched((prev) => {
+      if (prev >= posts.length) {
+        setNumberOfPostsFetched((prev) => prev - posts.length);
+      } else {
+        setNumberOfPostsFetched(0);
+      }
+    });
+    fetchPosts(pages.before, null, numberOfPostsFetched);
   };
 
   const fetchPosts = async (prevPage = null, nextPage = null, count = 0) => {
@@ -82,7 +103,7 @@ const Search = () => {
           <label className='form__label' htmlFor='sortBy'>
             sort posts by
           </label>
-          <select className='form__select' id='sortBy' value={sortBy} onChange={handleSortByChange}>
+          <select className='form__select' id='sortBy' name='sortBy' value={sortBy} onChange={handleSortByChange}>
             <option value='new'>new</option>
             <option value='top'>top</option>
             <option value='hot'>hot</option>
@@ -97,7 +118,15 @@ const Search = () => {
         {error ? <p className='error'>{error}</p> : null}
       </form>
 
-      <PostList posts={posts} pages={pages} fetchPosts={fetchPosts} sortBy={sortBy} postLimit={postLimit} />
+      <PostList posts={posts} title={title} subtitle={subtitle} />
+      <div className='button-wrapper'>
+        <button className='list__button' onClick={handlePrevPage}>
+          Prev Page
+        </button>
+        <button className='list__button' onClick={handleNextPage}>
+          Next Page
+        </button>
+      </div>
     </>
   );
 };
