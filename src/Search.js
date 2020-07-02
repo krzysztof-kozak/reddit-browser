@@ -9,20 +9,21 @@ const Search = () => {
   const [pages, setPages] = useState({});
   const [error, setError] = useState(null);
   const [numberOfPostsFetched, setNumberOfPostsFetched] = useState(0);
-  const [title, setTitle] = useState(0);
-  const [subtitle, setSubTitle] = useState(0);
+  const [title, setTitle] = useState('');
+  const [subTitle, setSubTitle] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     resetCount();
-    setTitle(e.target.search.value.replace(/\s+/g, '').toLowerCase());
-    setSubTitle(e.target.sortBy.value);
+    setSubTitle(e.target.sortBy.value.replace(/\s+/g, '').toLowerCase());
+    setTitle(e.target.search.value);
+
     if (searchQuery) {
       fetchPosts();
     }
   };
 
-  const handlePostLimiChange = (e) => {
+  const handlePostLimitChange = (e) => {
     setPostLimit(e.target.value);
   };
 
@@ -36,13 +37,11 @@ const Search = () => {
   };
 
   const handlePrevPage = () => {
-    setNumberOfPostsFetched((prev) => {
-      if (prev >= posts.length) {
-        setNumberOfPostsFetched((prev) => prev - posts.length);
-      } else {
-        setNumberOfPostsFetched(0);
-      }
-    });
+    if (posts.length >= numberOfPostsFetched) {
+      setNumberOfPostsFetched((prev) => prev - numberOfPostsFetched);
+    } else {
+      setNumberOfPostsFetched(0);
+    }
     fetchPosts(pages.before, null, numberOfPostsFetched);
   };
 
@@ -56,7 +55,6 @@ const Search = () => {
     );
 
     if (response.status === 404) {
-      console.log(response);
       setError(`I couldn't find this subreddit: https://www.reddit.com/r/${searchQuery}`);
       setPosts(false);
     } else {
@@ -72,7 +70,7 @@ const Search = () => {
     const posts = responseJson.data.children
 
       //Sticked posts do not adhere to the post per page limit. Filtering them out is not ideal, but I couldn't find a better solution.
-      .filter((post) => post.data.stickied === false)
+      // .filter((post) => post.data.stickied === false)
       .map((child) => {
         return { title: child.data.title, url: child.data.permalink, subredditName: child.data.subreddit_name_prefixed, author: child.data.author, key: child.data.id };
       });
@@ -97,7 +95,7 @@ const Search = () => {
           <label className='form__label' htmlFor='postLimit'>
             posts per page
           </label>
-          <select className='form__select' id='postLimit' value={postLimit} onChange={handlePostLimiChange}>
+          <select className='form__select' id='postLimit' name='postLimit' onChange={handlePostLimitChange}>
             <option value={10}>10</option>
             <option value={20}>20</option>
             <option value={30}>30</option>
@@ -108,7 +106,7 @@ const Search = () => {
           <label className='form__label' htmlFor='sortBy'>
             sort posts by
           </label>
-          <select className='form__select' id='sortBy' name='sortBy' value={sortBy} onChange={handleSortByChange}>
+          <select className='form__select' id='sortBy' name='sortBy' onChange={handleSortByChange} value={sortBy}>
             <option value='new'>new</option>
             <option value='top'>top</option>
             <option value='hot'>hot</option>
@@ -123,7 +121,7 @@ const Search = () => {
         {error ? <p className='error'>{error}</p> : null}
       </form>
 
-      <PostList posts={posts} title={title} subtitle={subtitle} />
+      <PostList posts={posts} title={title} subtitle={subTitle} />
       <div className='button-wrapper'>
         <button className={posts ? 'list__button' : 'hidden'} onClick={handlePrevPage}>
           Prev Page
