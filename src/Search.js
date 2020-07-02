@@ -37,8 +37,8 @@ const Search = () => {
   };
 
   const handlePrevPage = () => {
-    if (posts.length >= numberOfPostsFetched) {
-      setNumberOfPostsFetched((prev) => prev - numberOfPostsFetched);
+    if (numberOfPostsFetched - posts.length >= 0) {
+      setNumberOfPostsFetched((prev) => prev - posts.length);
     } else {
       setNumberOfPostsFetched(0);
     }
