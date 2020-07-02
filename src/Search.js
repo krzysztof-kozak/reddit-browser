@@ -23,6 +23,10 @@ const Search = () => {
     }
   };
 
+  const resetCount = () => {
+    setNumberOfPostsFetched(0);
+  };
+
   const handlePostLimitChange = (e) => {
     setPostLimit(e.target.value);
   };
@@ -43,10 +47,6 @@ const Search = () => {
       setNumberOfPostsFetched(0);
     }
     fetchPosts(pages.before, null, numberOfPostsFetched);
-  };
-
-  const resetCount = () => {
-    setNumberOfPostsFetched(0);
   };
 
   const fetchPosts = async (prevPage = null, nextPage = null, count = 0) => {
