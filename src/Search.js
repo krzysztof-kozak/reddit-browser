@@ -125,10 +125,10 @@ const Search = () => {
 
       <PostList posts={posts} title={title} subtitle={subtitle} />
       <div className='button-wrapper'>
-        <button className='list__button' onClick={handlePrevPage}>
+        <button className={posts ? 'list__button' : 'hidden'} onClick={handlePrevPage}>
           Prev Page
         </button>
-        <button className='list__button' onClick={handleNextPage}>
+        <button className={posts ? 'list__button' : 'hidden'} onClick={handleNextPage}>
           Next Page
         </button>
       </div>

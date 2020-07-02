@@ -64,3 +64,27 @@ p.error {
   color: red;
   max-width: 400px;
 }
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto 3em;
+  max-width: 768px;
+  @media (max-width: 768px) {
+    margin: 0 16px 3em;
+  }
+}
+
+.list__button {
+  font-size: 1.3em;
+  padding: 4px 8px;
+  background: #58904694;
+  border: 3px outset #357c1fa1;
+  box-shadow: 0 0 2px 1px #000;
+  color: #070628;
+}
+
+.hidden {
+  display: none;
+}
