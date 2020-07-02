@@ -14,6 +14,7 @@ const Search = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    resetCount();
     setTitle(e.target.search.value.replace(/\s+/g, '').toLowerCase());
     setSubTitle(e.target.sortBy.value);
     if (searchQuery) {
@@ -43,6 +44,10 @@ const Search = () => {
       }
     });
     fetchPosts(pages.before, null, numberOfPostsFetched);
+  };
+
+  const resetCount = () => {
+    setNumberOfPostsFetched(0);
   };
 
   const fetchPosts = async (prevPage = null, nextPage = null, count = 0) => {
